@@ -1,0 +1,21 @@
+// src/app/shared/layout/header/header.component.scss
+.header-container {
+  .logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+    }
+  }
+}
+
+:host ::ng-deep {
+  .p-menubar {
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+  }
+}

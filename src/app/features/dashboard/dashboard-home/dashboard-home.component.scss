@@ -1,0 +1,80 @@
+// src/app/features/dashboard/dashboard-home/dashboard-home.component.scss
+.dashboard-container {
+  padding: 1rem;
+
+  .dashboard-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+
+  .dashboard-subtitle {
+    color: var(--text-color-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      color: white;
+      font-size: 1.5rem;
+    }
+  }
+
+  .stat-title {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-color-secondary);
+  }
+
+  .stat-value {
+    margin: 0.25rem 0 0 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .stat-footer {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+
+    .stat-change {
+      display: flex;
+      align-items: center;
+      margin-right: 0.5rem;
+
+      i {
+        margin-right: 0.25rem;
+      }
+
+      &.positive {
+        color: var(--green-500);
+      }
+
+      &.negative {
+        color: var(--red-500);
+      }
+    }
+
+    .stat-period {
+      color: var(--text-color-secondary);
+    }
+  }
+
+  .project-item {
+    margin-bottom: 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none !important;
+    }
+  }
+}

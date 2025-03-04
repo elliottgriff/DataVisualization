@@ -1,0 +1,22 @@
+// src/app/app.component.scss
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  transition: margin-left 0.3s ease;
+  background-color: var(--surface-ground);
+
+  &.with-sidebar {
+    margin-left: 250px;
+  }
+}

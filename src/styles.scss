@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* PrimeNG */
+@import "primeicons/primeicons.css";
+/* Your global styles below */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.p-component {
+  font-family: var(--font-family);
+}

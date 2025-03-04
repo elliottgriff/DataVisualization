@@ -1,0 +1,98 @@
+<!-- src/app/features/dashboard/dashboard-home/dashboard-home.component.html -->
+<div class="dashboard-container">
+  <h1 class="dashboard-title">Dashboard</h1>
+  <p class="dashboard-subtitle">
+    Welcome to your developer dashboard. Here's an overview of your projects and
+    activity.
+  </p>
+
+  <!-- Stats Cards -->
+  <div class="grid mt-4">
+    <div *ngFor="let stat of stats()" class="col-12 md:col-6 lg:col-3">
+      <p-card styleClass="h-full">
+        <div class="flex align-items-center">
+          <div
+            class="stat-icon-wrapper mr-3"
+            [ngStyle]="{ 'background-color': stat.color }"
+          >
+            <i [class]="stat.icon"></i>
+          </div>
+          <div>
+            <h3 class="stat-title">{{ stat.title }}</h3>
+            <p class="stat-value">{{ stat.value }}</p>
+          </div>
+        </div>
+        <div class="stat-footer">
+          <span
+            [class]="
+              'stat-change ' +
+              (stat.changeDirection === 'up' ? 'positive' : 'negative')
+            "
+          >
+            <i
+              [class]="
+                stat.changeDirection === 'up'
+                  ? 'pi pi-arrow-up'
+                  : 'pi pi-arrow-down'
+              "
+            ></i>
+            {{ stat.change }}
+          </span>
+          <span class="stat-period">from last month</span>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <!-- Chart & Projects -->
+  <div class="grid mt-4">
+    <!-- Activity Chart -->
+    <div class="col-12 lg:col-8">
+      <p-card header="Activity Overview" styleClass="h-full">
+        <p-chart
+          type="line"
+          [data]="chartData()"
+          [options]="chartOptions"
+          height="300px"
+        ></p-chart>
+      </p-card>
+    </div>
+
+    <!-- Recent Projects -->
+    <div class="col-12 lg:col-4">
+      <p-card header="Recent Projects" styleClass="h-full">
+        <ng-template pTemplate="content">
+          <div
+            *ngFor="let project of recentProjects()"
+            class="project-item p-2 border-bottom-1 border-200"
+          >
+            <div class="flex justify-content-between align-items-center mb-2">
+              <span class="font-medium">{{ project.name }}</span>
+              <p-tag
+                [value]="project.status"
+                [severity]="getStatusSeverity(project.status)"
+              ></p-tag>
+            </div>
+            <div class="flex flex-column">
+              <div class="flex justify-content-between align-items-center mb-2">
+                <small>Progress: {{ project.progress }}%</small>
+                <small>{{ project.date }}</small>
+              </div>
+              <p-progressBar
+                [value]="project.progress"
+                [showValue]="false"
+              ></p-progressBar>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <p-button
+            label="View All Projects"
+            icon="pi pi-external-link"
+            styleClass="p-button-text"
+          ></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>

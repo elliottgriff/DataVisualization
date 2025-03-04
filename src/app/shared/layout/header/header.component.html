@@ -1,0 +1,21 @@
+<!-- src/app/shared/layout/header/header.component.html -->
+<div class="header-container">
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start">
+      <div class="brand-logo">DevDashboard</div>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <button
+        pButton
+        [icon]="themeSwitcher.isDarkMode() ? 'pi pi-sun' : 'pi pi-moon'"
+        (click)="themeSwitcher.toggleTheme()"
+        class="p-button-rounded p-button-text"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-user"
+        class="p-button-rounded p-button-text"
+      ></button>
+    </ng-template>
+  </p-menubar>
+</div>
